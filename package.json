@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dependencies:install": "npm install",
-    "frontend:install": "cd udagram-frontend && npm install --legacy-peer-deps",
+    "frontend:install": "cd udagram-frontend && npm install --legacy-peer-depsleagacy",
     "frontend:build": "cd udagram-frontend && npm run build",
     "frontend:test": "cd udagram-frontend && npm run test && npm run e2e",
     "frontend:deploy": "cd udagram-frontend && npm run deploy",
