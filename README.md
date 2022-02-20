@@ -1,12 +1,10 @@
 # Udagram
 
-This application is provided to you as an alternative starter project if you do not wish to host your own code done in the previous courses of this nanodegree. The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
+The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
 
 ## Getting Started
 
 1. Clone this repo locally into the location of your choice.
-1. Move the content of the udagram folder at the root of the repository as this will become the main content of the project.
-1. Open a terminal and navigate to the root of the repo
 1. follow the instructions in the installation step
 
 The project can run but is missing some information to connect to the database and storage service. These will be setup during the course of the project
@@ -63,3 +61,41 @@ The e2e tests are using Protractor and Jasmine.
 ## License
 
 [License](LICENSE.txt)
+
+## Getting Started
+
+### Install project dependencies
+
+From the root folder:
+
+- angluar/cli need to be installed first, for localy installation use
+
+  `npm run dependencies:install`
+
+  for globaly installation
+
+  `npm install -g @angular/cli`
+
+- installing main Frontend and Backend depenedacies
+
+  `npm run frontend:install`
+
+  `npm run frontend:install`
+
+### Export the ENV variables
+
+- `.env` file must be created under udagram-api path with the following content
+
+  | KEY               |       VALUE        |     DESCRIPTION |
+  | :---------------- | :----------------: | --------------: |
+  | POSTGRES_USERNAME |    udagram_user    |     DB username |
+  | POSTGRES_PASSWORD |    password123     |      dbpassword |
+  | POSTGRES_DB       |     udagram_db     |         db name |
+  | PORT              |        3000        |     port number |
+  | POSTGRES_HOST     |     127.0.0.1      |           db ip |
+  | AWS_REGION        |     aws_region     | aws region name |
+  | AWS_PROFILE       |    aws_profile     |     aws profile |
+  | AWS_BUCKET        |     aws_bucket     |   aws s3 bucket |
+  | URL               |        url         |             url |
+  | JWT_SECRET        | IAMJWTSECRETSTRING |   secret string |
+
