@@ -99,3 +99,6 @@ From the root folder:
   | URL               |        url         |             url |
   | JWT_SECRET        | IAMJWTSECRETSTRING |   secret string |
 
+### Udagram Digram
+
+![digram](docs/Udagram-digram.png)
