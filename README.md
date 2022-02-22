@@ -86,19 +86,21 @@ From the root folder:
 
 - `.env` file must be created under udagram-api path with the following content
 
-  | KEY               |       VALUE        |     DESCRIPTION |
-  | :---------------- | :----------------: | --------------: |
-  | POSTGRES_USERNAME |    udagram_user    |     DB username |
-  | POSTGRES_PASSWORD |    password123     |      dbpassword |
-  | POSTGRES_DB       |     udagram_db     |         db name |
-  | PORT              |        3000        |     port number |
-  | POSTGRES_HOST     |     127.0.0.1      |           db ip |
-  | AWS_REGION        |     aws_region     | aws region name |
-  | AWS_PROFILE       |    aws_profile     |     aws profile |
-  | AWS_BUCKET        |     aws_bucket     |   aws s3 bucket |
-  | URL               |        url         |             url |
-  | JWT_SECRET        | IAMJWTSECRETSTRING |   secret string |
+  | KEY               |       VALUE        |           DESCRIPTION |
+  | :---------------- | :----------------: | --------------------: |
+  | POSTGRES_USERNAME |   _udagram_user_   |     Postgress DB User |
+  | POSTGRES_PASSWORD |    password123     | Postgress DB Password |
+  | POSTGRES_DB       |     udagram_db     |     Postgress DB Name |
+  | PORT              |        3000        |           port number |
+  | POSTGRES_HOST     |     127.0.0.1      |  Postgress DB Host IP |
+  | AWS_REGION        |     aws_region     |       aws region name |
+  | AWS_PROFILE       |    aws_profile     |           aws profile |
+  | AWS_BUCKET        |     aws_bucket     |         aws s3 bucket |
+  | URL               |        url         |                   url |
+  | JWT_SECRET        | IAMJWTSECRETSTRING |         secret string |
 
-### Udagram Digram
+### Udagram Infrasturcture Digram
 
 ![digram](docs/Udagram-digram.png)
+
+### Udagram Database
