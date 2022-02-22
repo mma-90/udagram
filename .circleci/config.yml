@@ -13,7 +13,7 @@ jobs:
       # - image: cimg/node:16.13.2
     steps:
       - node/install
-      - checkout  
+      - checkout
       - aws-cli/setup:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-region: AWS_REGION

@@ -1,13 +1,23 @@
 # Udagram
 
-The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
+Udagram Full Stack Web Application connsist of 2 sub projects
 
-## Getting Started
+1.  Udagram-frontend
+2.  Udagram-api
 
-1. Clone this repo locally into the location of your choice.
-1. follow the instructions in the installation step
+## Udagram Infrastructres
 
-The project can run but is missing some information to connect to the database and storage service. These will be setup during the course of the project
+![digram](docs/Udagram-digram.png)
+
+As the pervious digrame there are 3 infrastructure
+
+| Infrastructure       |       Perpose       |   Link |
+| :------------------- | :-----------------: | -----: |
+| AWS RDS              |     Hosting DB      | `link` |
+| AWS ElasticBeanstalk | Hosting Backend API | `link` |
+| AWS S3               |     Web Hosting     | `link` |
+
+### Udagram Database
 
 ### Dependencies
 
@@ -21,50 +31,16 @@ The project can run but is missing some information to connect to the database a
 - A RDS database running Postgres.
 
 - A S3 bucket for hosting uploaded pictures.
-
 ```
-
-### Installation
-
-Provision the necessary AWS services needed for running the application:
-
-1. In AWS, provision a publicly available RDS database running Postgres. <Place holder for link to classroom article>
-1. In AWS, provision a s3 bucket for hosting the uploaded files. <Place holder for tlink to classroom article>
-1. Export the ENV variables needed or use a package like [dotnev](https://www.npmjs.com/package/dotenv)/.
-1. From the root of the repo, navigate udagram-api folder `cd starter/udagram-api` to install the node_modules `npm install`. After installation is done start the api in dev mode with `npm run dev`.
-1. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`. After installation is done start the api in dev mode with `npm run start`.
-
-## Testing
-
-This project contains two different test suite: unit tests and End-To-End tests(e2e). Follow these steps to run the tests.
-
-1. `cd starter/udagram-frontend`
-1. `npm run test`
-1. `npm run e2e`
-
-There are no Unit test on the back-end
-
-### Unit Tests:
-
-Unit tests are using the Jasmine Framework.
-
-### End to End Tests:
-
-The e2e tests are using Protractor and Jasmine.
-
-## Built With
-
-- [Angular](https://angular.io/) - Single Page Application Framework
-- [Node](https://nodejs.org) - Javascript Runtime
-- [Express](https://expressjs.com/) - Javascript API Framework
-
-## License
-
-[License](LICENSE.txt)
 
 ## Getting Started
 
-### Install project dependencies
+1. Clone this repo locally into the location of your choice.
+2. follow the instructions in the installation step
+
+## Installation
+
+1- Install project dependencies
 
 From the root folder:
 
@@ -82,25 +58,47 @@ From the root folder:
 
   `npm run frontend:install`
 
-### Export the ENV variables
+2- Export the ENV variables
 
-- `.env` file must be created under udagram-api path with the following content
+`.env` file must be created under udagram-api path with the following content
 
-  | KEY               |       VALUE        |           DESCRIPTION |
-  | :---------------- | :----------------: | --------------------: |
-  | POSTGRES_USERNAME |   _udagram_user_   |     Postgress DB User |
-  | POSTGRES_PASSWORD |    password123     | Postgress DB Password |
-  | POSTGRES_DB       |     udagram_db     |     Postgress DB Name |
-  | PORT              |        3000        |           port number |
-  | POSTGRES_HOST     |     127.0.0.1      |  Postgress DB Host IP |
-  | AWS_REGION        |     aws_region     |       aws region name |
-  | AWS_PROFILE       |    aws_profile     |           aws profile |
-  | AWS_BUCKET        |     aws_bucket     |         aws s3 bucket |
-  | URL               |        url         |                   url |
-  | JWT_SECRET        | IAMJWTSECRETSTRING |         secret string |
+| KEY               |          VALUE           |                               DESCRIPTION |
+| :---------------- | :----------------------: | ----------------------------------------: |
+| POSTGRES_USERNAME |        _DB-USER_         |                         Postgress DB User |
+| POSTGRES_PASSWORD |      _DB-PASSWORD_       |                     Postgress DB Password |
+| POSTGRES_DB       |        _DB-NAME_         |                         Postgress DB Name |
+| PORT              |          _3000_          |                               Port Number |
+| POSTGRES_HOST     |        _DB-HOST_         |               Postgress DB Host IP or URL |
+| AWS_REGION        |       _aws_region_       |           AWS Region Name ex: `us-east-1` |
+| AWS_PROFILE       |      _aws_profile_       |    AWS Profile name to host backend files |
+| AWS_BUCKET        |       _aws_bucket_       | AWS S3 bucket name to host frontend files |
+| URL               |          _url_           |                                       url |
+| JWT_SECRET        | _I-am-JWT-Secret-String_ |                 Used to create JWT Tokens |
 
-### Udagram Infrasturcture Digram
+3- Testing Frontend and Backend
 
-![digram](docs/Udagram-digram.png)
+- `npm run frontend:test`
 
-### Udagram Database
+- `npm run frontend:test`
+
+4- Building Frontend and Backend
+
+- `npm run frontend:build`
+
+- `npm run frontend:build`
+
+5- Deploy Frontend and Backend
+
+- `npm run frontend:deploy`
+
+- `npm run frontend:deploy`
+
+## Built With
+
+- [Angular](https://angular.io/) - Single Page Application Framework
+- [Node](https://nodejs.org) - Javascript Runtime
+- [Express](https://expressjs.com/) - Javascript API Framework
+
+## License
+
+[License](LICENSE.txt)
