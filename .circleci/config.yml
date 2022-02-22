@@ -14,9 +14,9 @@ jobs:
       - node/install
       - checkout
       - aws-cli/setup:
-          aws-access-key-id: "$AWS_ACCESS_KEY_ID"
-          aws-region: "$AWS_REGION"
-          aws-secret-access-key: "$AWS_SECRET_ACCESS_KEY"
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       # install dependencies in both apps
 
       - run:
@@ -31,11 +31,11 @@ jobs:
       #     name: Backend Install
       #     command: |
       #       npm run backend:install
-      - run:
-          name: Frontend Test
-          command: |
-            npm run frontend:test
       # - run:
+      #     name: Frontend Test
+      #     command: |
+      #       npm run frontend:test
+      # # - run:
       #     name: Backend Test
       #     command: |
       #       npm run backend:test
