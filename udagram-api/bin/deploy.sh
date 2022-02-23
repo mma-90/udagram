@@ -5,10 +5,10 @@
 # echo "HI 2"
 # echo $AWS_BUCKET
 
-eb init $APP_NAME --region $AWS_REGION
+# eb init $APP_NAME --region $AWS_REGION
 # eb create $APP_NAME
 
-eb use $AWS_ENV
+eb use $CIRCLE_BRANCH-udagram-app
 eb deploy
-eb list 
+eb status 
 eb health
