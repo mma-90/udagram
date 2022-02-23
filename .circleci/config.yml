@@ -36,7 +36,8 @@ jobs:
       - image: "cimg/base:stable"
 
     steps:
-      # - checkout
+      - node/install
+      - checkout
       - run:
           name: Frontend Test
           command: |
@@ -51,8 +52,8 @@ jobs:
       - image: "cimg/base:stable"
       # - image: cimg/node:16.13.2
     steps:
-      # - node/install
-      # - checkout
+      - node/install
+      - checkout
       - aws-cli/setup:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-region: AWS_REGION
@@ -76,6 +77,9 @@ jobs:
       - image: "cimg/base:stable"
       # - image: cimg/node:16.13.2
     steps:
+      - node/install
+      - checkout
+
       - aws-cli/setup:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-region: AWS_REGION
