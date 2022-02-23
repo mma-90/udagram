@@ -36,7 +36,7 @@ jobs:
       - image: "cimg/base:stable"
 
     steps:
-      # - checkout
+      - checkout
       - run:
           name: Frontend Test
           command: |
