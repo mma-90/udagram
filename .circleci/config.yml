@@ -9,7 +9,7 @@ orbs:
   # different jobs are calles later in the workflows sections
 
 jobs:
-   install-and-test:
+  install-and-test:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -50,9 +50,7 @@ jobs:
           aws-region: AWS_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       - eb/setup
-
       # install dependencies in both apps
-
       - run:
           name: Frontend Build
           command: |
@@ -61,7 +59,6 @@ jobs:
           name: Backend Build
           command: |
             npm run backend:build
-
   deploy:
     docker:
       # the base image can run most needed actions with orbs
@@ -84,7 +81,6 @@ jobs:
           name: Backend Deploy
           command: |
             npm run backend:deploy
-
 workflows:
   version: 2
   udagram-pipeline:
@@ -92,7 +88,7 @@ workflows:
       - install-and-test
       - build:
           requires:
-            - install and test
+            - install-and-test
       - deploy:
           requires:
             - build
