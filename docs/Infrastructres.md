@@ -11,6 +11,22 @@ Pervious digrame discribe high level overview for Udagram infrastructures.
   - User: `udagram`
   - Default Password: `udagram`
 
+User Table
+
+id INTEGER
+email: STRING, primaryKey
+passwordHash: STRING
+createdAt: DATE,
+updatedAt: DATE,
+
+FeedItem
+
+id: primaryKey , INTEGER
+caption: STRING
+url: STRING
+createdAt: DATE,
+updatedAt: DATE
+
 ## database uml
 
 - **AWS S3** used for web hosting
