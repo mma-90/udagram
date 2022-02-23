@@ -9,7 +9,7 @@ orbs:
   # different jobs are calles later in the workflows sections
 
 jobs:
-   install and test:
+   install-and-test:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -89,7 +89,7 @@ workflows:
   version: 2
   udagram-pipeline:
     jobs:
-      - install and test
+      - install-and-test
       - build:
           requires:
             - install and test
