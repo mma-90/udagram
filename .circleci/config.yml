@@ -9,7 +9,7 @@ orbs:
   # different jobs are calles later in the workflows sections
 
 jobs:
-  installing-dependencies:
+   install and test:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -29,15 +29,6 @@ jobs:
           name: Backend Install
           command: |
             npm run backend:install
-
-  test:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
-
-    steps:
-      - node/install
-      - checkout
       - run:
           name: Frontend Test
           command: |
@@ -98,13 +89,10 @@ workflows:
   version: 2
   udagram-pipeline:
     jobs:
-      - installing-dependencies
-      - test:
-          requires:
-            - installing-dependencies
+      - install and test
       - build:
           requires:
-            - test
+            - install and test
       - deploy:
           requires:
             - build
