@@ -8,8 +8,93 @@ orbs:
   eb: circleci/aws-elastic-beanstalk@1.0.0
   # different jobs are calles later in the workflows sections
 
+# jobs:
+#   install-and-test:
+#     docker:
+#       # the base image can run most needed actions with orbs
+#       - image: "cimg/base:stable"
+
+#     steps:
+#       - node/install
+#       - checkout
+#       - run:
+#           name: Install DevDependencies
+#           command: |
+#             npm run dependencies:install
+#       - run:
+#           name: Frontend Install
+#           command: |
+#             npm run frontend:install
+#       - run:
+#           name: Backend Install
+#           command: |
+#             npm run backend:install
+#       - run:
+#           name: Frontend Test
+#           command: |
+#             npm run frontend:test
+#       - run:
+#           name: Backend Test
+#           command: |
+#             npm run backend:test
+#   build:
+#     docker:
+#       # the base image can run most needed actions with orbs
+#       - image: "cimg/base:stable"
+#       # - image: cimg/node:16.13.2
+#     steps:
+#       - node/install
+#       - checkout
+#       - aws-cli/setup:
+#           aws-access-key-id: AWS_ACCESS_KEY_ID
+#           aws-region: AWS_REGION
+#           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+#       - eb/setup
+#       # install dependencies in both apps
+#       - run:
+#           name: Frontend Build
+#           command: |
+#             npm run frontend:build
+#       - run:
+#           name: Backend Build
+#           command: |
+#             npm run backend:build
+#   deploy:
+#     docker:
+#       # the base image can run most needed actions with orbs
+#       - image: "cimg/base:stable"
+#       # - image: cimg/node:16.13.2
+#     steps:
+#       - node/install
+#       - checkout
+
+#       - aws-cli/setup:
+#           aws-access-key-id: AWS_ACCESS_KEY_ID
+#           aws-region: AWS_REGION
+#           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+#       - eb/setup
+#       - run:
+#           name: Frontend Deploy
+#           command: |
+#             npm run frontend:deploy
+#       - run:
+#           name: Backend Deploy
+#           command: |
+#             npm run backend:deploy
+# workflows:
+#   version: 2
+#   udagram-pipeline:
+#     jobs:
+#       - install-and-test
+#       - build:
+#           requires:
+#             - install-and-test
+#       - deploy:
+#           requires:
+#             - build
+
 jobs:
-  install-and-test:
+  build:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -17,6 +102,12 @@ jobs:
     steps:
       - node/install
       - checkout
+      - aws-cli/setup:
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+      - eb/setup
+
       - run:
           name: Install DevDependencies
           command: |
@@ -37,20 +128,6 @@ jobs:
           name: Backend Test
           command: |
             npm run backend:test
-  build:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
-      # - image: cimg/node:16.13.2
-    steps:
-      - node/install
-      - checkout
-      - aws-cli/setup:
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-region: AWS_REGION
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-      - eb/setup
-      # install dependencies in both apps
       - run:
           name: Frontend Build
           command: |
@@ -59,20 +136,6 @@ jobs:
           name: Backend Build
           command: |
             npm run backend:build
-  deploy:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
-      # - image: cimg/node:16.13.2
-    steps:
-      - node/install
-      - checkout
-
-      - aws-cli/setup:
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-region: AWS_REGION
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-      - eb/setup
       - run:
           name: Frontend Deploy
           command: |
@@ -81,14 +144,3 @@ jobs:
           name: Backend Deploy
           command: |
             npm run backend:deploy
-workflows:
-  version: 2
-  udagram-pipeline:
-    jobs:
-      - install-and-test
-      - build:
-          requires:
-            - install-and-test
-      - deploy:
-          requires:
-            - build
