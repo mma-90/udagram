@@ -2,7 +2,7 @@
 
 ![digram](./Udagram-digram.png)
 
-As the pervious digrame there are 3 infrastructure
+Pervious digrame discribe high level overview for Udagram infrastructures.
 
 - **AWS RDS** used to host project database
 
@@ -19,4 +19,4 @@ As the pervious digrame there are 3 infrastructure
 
 - **AWS ElasticBeanstalk** used for hosting backend api
   - link: `link`
-  - Node Version:   
+  - Node Version:
