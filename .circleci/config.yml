@@ -100,11 +100,11 @@ workflows:
     jobs:
       - installing-dependencies
       - test:
-        requires:
-          - installing-dependencies
+          requires:
+            - installing-dependencies
       - build:
-        requires:
-          - test
+          requires:
+            - test
       - deploy:
-        requires:
-          - build
+          requires:
+            - build
