@@ -12,6 +12,7 @@ cd www
 echo ${CIRCLE_BRANCH}
 eb init udagram-app --region $AWS_REGION --platform node.js
 eb use $CIRCLE_BRANCH-udagram-app
+eb setenv test="test" POSTGRES_USERNAME="postgres" POSTGRES_PASSWORD="password123" POSTGRES_DB="udagram" PORT_DB="5432" POSTGRES_HOST="udagram-app.cmgb8ilh0484.us-east-1.rds.amazonaws.com" AWS_REGION="us-east-1" AWS_PROFILE="AKIAX6L7YWEGODZ4XIIA" AWS_BUCKET="udagram-web" URL="http://main-udagram-app.eba-4fpa4vv4.us-east-1.elasticbeanstalk.com" JWT_SECRET="IAMJWTSECRETSTRING" PORT_SERVER="8080" 
 # eb setenv
 eb deploy
 eb status 
