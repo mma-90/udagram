@@ -11,11 +11,11 @@ Udagram Full Stack Web Application connsist of 2 sub projects
 
 As the pervious digrame there are 3 infrastructure
 
-| Infrastructure       |       Perpose       |   Link |
-| :------------------- | :-----------------: | -----: |
-| AWS RDS              |     Hosting DB      | `link` |
-| AWS ElasticBeanstalk | Hosting Backend API | `link` |
-| AWS S3               |     Web Hosting     | `link` |
+| Infrastructure       |       Perpose       |                           Link |
+| :------------------- | :-----------------: | -----------------------------: |
+| AWS RDS              |     Hosting DB      | [Angular](https://angular.io/) |
+| AWS ElasticBeanstalk | Hosting Backend API | [Angular](https://angular.io/) |
+| AWS S3               |     Web Hosting     | [Angular](https://angular.io/) |
 
 for more details you can read [Infrastructres Details](docs/Infrastructres.md)
 
