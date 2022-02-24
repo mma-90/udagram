@@ -7,9 +7,8 @@ Pervious digrame discribe high level overview for Udagram infrastructures.
 - **AWS RDS** used to host project database
 
   - Database Type: Postgres v
-  - link: `link`
-  - User: `udagram`
-  - Default Password: `udagram`
+  - Host: `udagram-app.cmgb8ilh0484.us-east-1.rds.amazonaws.com`
+  - User: `postgres`
 
 User Table
 
@@ -31,8 +30,8 @@ updatedAt: DATE
 
 - **AWS S3** used for web hosting
 
-  - link: `link`
+  - link: [udagram-web](http://udagram-web.s3-website-us-east-1.amazonaws.com/)
 
 - **AWS ElasticBeanstalk** used for hosting backend api
-  - link: `link`
-  - Node Version:
+  - link: [udagram-api](http://main-udagram-app.eba-4fpa4vv4.us-east-1.elasticbeanstalk.com/)
+  - Node Version: 14
