@@ -10,23 +10,9 @@ Pervious digrame discribe high level overview for Udagram infrastructures.
   - Host: `udagram-app.cmgb8ilh0484.us-east-1.rds.amazonaws.com`
   - User: `postgres`
 
-User Table
+  ### database ERD
 
-id INTEGER
-email: STRING, primaryKey
-passwordHash: STRING
-createdAt: DATE,
-updatedAt: DATE,
-
-FeedItem
-
-id: primaryKey , INTEGER
-caption: STRING
-url: STRING
-createdAt: DATE,
-updatedAt: DATE
-
-## database uml
+  ![digram](./db-erd.PNG)
 
 - **AWS S3** used for web hosting
 
