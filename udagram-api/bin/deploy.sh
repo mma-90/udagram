@@ -8,6 +8,7 @@
 # eb init $APP_NAME --region $AWS_REGION
 # eb create $APP_NAME
 
+cd www
 echo ${CIRCLE_BRANCH}
 eb init udagram-app --region $AWS_REGION
 eb use $CIRCLE_BRANCH-udagram-app
