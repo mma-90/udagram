@@ -24,7 +24,7 @@ When we push new code to our repo, Circleci keep Continuous Intgration (CI) / Co
 
 4- Building Frontend & Backend.
 
-`npm run frontend:build`
+`npm run frontend:all`
 
 `npm run backend:build`
 
