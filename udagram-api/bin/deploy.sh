@@ -11,6 +11,6 @@
 echo ${CIRCLE_BRANCH}
 eb init udagram-app --region $AWS_REGION
 eb use $CIRCLE_BRANCH-udagram-app
-ed deploy
+eb deploy
 eb status 
 eb health
