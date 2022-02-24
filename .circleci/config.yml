@@ -9,7 +9,7 @@ orbs:
   browser-tools: circleci/browser-tools@1.2.4
   # different jobs are calles later in the workflows sections
 jobs:
-  install:
+  build:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -17,7 +17,23 @@ jobs:
     steps:
       - node/install
       - checkout
-      
+      - aws-cli/setup:
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+      - eb/setup
+      - browser-tools/install-browser-tools:
+          chrome-version: 85.0.4183.102
+          firefox-version: 80.0.1
+      - run:
+          command: |
+            google-chrome --version
+            firefox --version
+            geckodriver --version
+            chromedriver --version
+            java -jar /usr/local/bin/selenium.jar --version
+          name: Check install
+
       # install dependencies in both apps
       - run:
           name: Install DevDependencies
@@ -31,20 +47,6 @@ jobs:
           name: Backend Install
           command: |
             npm run backend:install
-  test:
-    executor: browser-tools/default
-    steps:
-      - browser-tools/install-browser-tools:
-          chrome-version: 85.0.4183.102
-          firefox-version: 80.0.1
-      - run:
-          command: |
-            google-chrome --version
-            firefox --version
-            geckodriver --version
-            chromedriver --version
-            java -jar /usr/local/bin/selenium.jar --version
-          name: Check install
       - run:
           name: Frontend Test
           command: |
@@ -53,62 +55,19 @@ jobs:
           name: Backend Test
           command: |
             npm run backend:test
-  build:
-      docker:
-        # the base image can run most needed actions with orbs
-        - image: "cimg/base:stable"
-        # - image: cimg/node:16.13.2
-      steps:
-        - node/install
-        - checkout
-        - aws-cli/setup:
-            aws-access-key-id: AWS_ACCESS_KEY_ID
-            aws-region: AWS_REGION
-            aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-        - eb/setup
-        - browser-tools/install-browser-tools
-
-        # install dependencies in both apps
-        - run:
-            name: Install DevDependencies
-            command: |
-              npm run dependencies:install
-        - run:
-            name: Frontend Install
-            command: |
-              npm run frontend:install
-        - run:
-            name: Backend Install
-            command: |
-              npm run backend:install
-
-        - run:
-            name: Frontend Build
-            command: |
-              npm run frontend:build
-        - run:
-            name: Backend Build
-            command: |
-              npm run backend:build
-        - run:
-            name: Frontend Deploy
-            command: |
-              npm run frontend:deploy
-        - run:
-            name: Backend Deploy
-            command: |
-              npm run backend:deploy
-workflows:
-  version: 2
-  udagram-pipeline:
-    jobs:
-      -install
-      - test:
-        requires:
-          - install
-      - build:
-          requires:
-            - test
-      - deploy:
-          requires:
-            - build
+      - run:
+          name: Frontend Build
+          command: |
+            npm run frontend:build
+      - run:
+          name: Backend Build
+          command: |
+            npm run backend:build
+      - run:
+          name: Frontend Deploy
+          command: |
+            npm run frontend:deploy
+      - run:
+          name: Backend Deploy
+          command: |
+            npm run backend:deploy
