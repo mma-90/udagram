@@ -16,22 +16,20 @@ When we push new code to our repo, Circleci keep Continuous Intgration (CI) / Co
 
 `npm run frontend:install`
 
-`npm run frontend:install`
+`npm run backend:install`
 
-3- Testing Frontend & Backend.
+3- Testing Backend.
 
-`npm run frontend:test`
-
-`npm run frontend:test`
+`npm run backend:test`
 
 4- Building Frontend & Backend.
 
 `npm run frontend:build`
 
-`npm run frontend:build`
+`npm run backend:build`
 
 5- Deploying Frontend & Backend.
 
 `npm run frontend:deploy`
 
-`npm run frontend:deploy`
+`npm run backend:deploy`
