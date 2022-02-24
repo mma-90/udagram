@@ -9,7 +9,8 @@
 # eb create $APP_NAME
 
 echo ${CIRCLE_BRANCH}
-eb init udagram-app
-eb deploy $CIRCLE_BRANCH-udagram-app
+eb init udagram-app --region $AWS_REGION
+eb use $CIRCLE_BRANCH-udagram-app
+ed deploy
 eb status 
 eb health
