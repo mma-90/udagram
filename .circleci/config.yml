@@ -27,10 +27,10 @@ jobs:
           name: Install DevDependencies
           command: |
             npm run dependencies:install
-      - run:
-          name: Frontend Install
-          command: |
-            npm run frontend:install
+      # - run:
+      #     name: Frontend Install
+      #     command: |
+      #       npm run frontend:install
       - run:
           name: Backend Install
           command: |
@@ -43,18 +43,18 @@ jobs:
           name: Backend Test
           command: |
             npm run backend:test
-      - run:
-          name: Frontend Build
-          command: |
-            npm run frontend:build
+      # - run:
+      #     name: Frontend Build
+      #     command: |
+      #       npm run frontend:build
       - run:
           name: Backend Build
           command: |
             npm run backend:build
-      - run:
-          name: Frontend Deploy
-          command: |
-            npm run frontend:deploy
+      # - run:
+      #     name: Frontend Deploy
+      #     command: |
+      #       npm run frontend:deploy
       - run:
           name: Backend Deploy
           command: |
