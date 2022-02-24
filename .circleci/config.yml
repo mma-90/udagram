@@ -6,24 +6,9 @@ orbs:
   aws-s3: circleci/aws-s3@3.0
   # aws-elastic-beanstalk: circleci/aws-elastic-beanstalk@2.0.1
   eb: circleci/aws-elastic-beanstalk@1.0.0
-  browser-tools: circleci/browser-tools@1.2.4
+  # browser-tools: circleci/browser-tools@1.2.4
   # different jobs are calles later in the workflows sections
 jobs:
-  test:
-    executor: browser-tools/default
-    steps:
-      - browser-tools/install-browser-tools:
-          chrome-version: 85.0.4183.102
-          firefox-version: 80.0.1
-      - run:
-          command: |
-            google-chrome --version
-            firefox --version
-            geckodriver --version
-            chromedriver --version
-            java -jar /usr/local/bin/selenium.jar --version
-          name: Check install
-
   build:
     docker:
       # the base image can run most needed actions with orbs
@@ -37,8 +22,7 @@ jobs:
           aws-region: AWS_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       - eb/setup
-      - browser-tools/install-browser-tools
-
+      # - browser-tools/install-browser-tools
       # install dependencies in both apps
       - run:
           name: Install DevDependencies
@@ -52,10 +36,10 @@ jobs:
           name: Backend Install
           command: |
             npm run backend:install
-      - run:
-          name: Frontend Test
-          command: |
-            npm run frontend:test
+      # - run:
+      #     name: Frontend Test
+      #     command: |
+      #       npm run frontend:test
       - run:
           name: Backend Test
           command: |
